@@ -102,16 +102,17 @@ var dobro = function (x){
 console.log(dobro(15))
 
 
-//arrow function funcao anonima
+//arrow function funcao anonima (num1, operador, num2) =>
 
-const calc = function(num1, operador, num2){
+const calc = (num1, operador, num2) =>{
     return eval(`${num1} ${operador} ${num2}`)
     
 }
 console.log(`O resultado da operação é ${calc(4,'*',5)}`)
 
 
-//arrow function =>
+
+//arrow function (=>)
 const Calc  = (num1, operador, num2) => {
     return eval(`${num1} ${operador} ${num2}`)
 } 
