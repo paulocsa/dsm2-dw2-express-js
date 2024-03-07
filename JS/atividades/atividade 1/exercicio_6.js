@@ -1,3 +1,5 @@
+//6 – Crie uma arrow function que receba um número como parâmetro e retorne o triplo desse número. O resultado deve ser exibido no console concatenado com uma string. (Ex: “O triplo do número é...”)
+
 console.log();
 
 console.log("Exercicio 6 - Arrow function com parâmetro único");

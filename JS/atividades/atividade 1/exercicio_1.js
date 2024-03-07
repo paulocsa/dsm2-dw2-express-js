@@ -1,3 +1,6 @@
+//1 – Crie uma função simples que exiba no console seu nome, sua idade e sua cidade. (Não esqueça de invocar a função no final).
+
+
 console.log();
 console.log("Exercicio 1 - função simples");
 

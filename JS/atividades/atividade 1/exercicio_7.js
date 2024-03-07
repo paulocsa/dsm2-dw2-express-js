@@ -1,3 +1,5 @@
+//7 – Crie uma arrow function que receba quatro números como parâmetro e retorne a soma entre esses números. O resultado deve ser impresso no console.
+
 console.log();
 
 console.log("Exercicio 7 - Arrow function com mais de um parâmetro");

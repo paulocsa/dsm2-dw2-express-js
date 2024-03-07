@@ -1,3 +1,5 @@
+//3 – Crie uma função que receba três números e retorne a multiplicação entre esses números. O resultado deve ser exibido no console.
+
 console.log();
 
 console.log("Exercicio 3 - Função com retorno");
