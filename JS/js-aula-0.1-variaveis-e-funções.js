@@ -131,6 +131,14 @@ console.log(`O resultado da operação é ${Dobro(2)}`)
 
 
 
+// FUNCAO IMEDIATA - IIFE   
+
+const iife = (function() {
+    console.log('Olá Ronaldo')
+    })();
+
+
+
 
 
 
