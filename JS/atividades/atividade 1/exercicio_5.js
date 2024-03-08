@@ -6,7 +6,12 @@ console.log("Exercicio 5 - Função anônima");
 
 
 var media = function (n1,n2){
-    return ((n1+n2)/2);
+    if(((n1+n2)/2) <= 5){
+        return "reprovado e a media é " + (n1+n2)/2;
+    }else{
+        return "aprovado e a media é " + (n1+n2)/2;
+    }
+
 }
 
-console.log(`O resultado media das notas é ${media(5,10)}`);
+console.log(`Você foi ${media(5,10)}`);
