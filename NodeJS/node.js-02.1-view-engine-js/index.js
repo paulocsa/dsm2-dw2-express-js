@@ -19,7 +19,7 @@ app.get("/", (req,res) => {
 
 app.get("/perfil", (req,res) => {
     // sera renderizdo a pagina perfil
-    res.sender('perfil');
+    res.render('perfil');
 });
 
 // rodar o comando NPM INSTALL EJS
@@ -28,10 +28,10 @@ app.get("/perfil", (req,res) => {
 
 app.get("/videos", (req,res) => {
 
-    const playlist = req.params.playlist
-    const video = req.params.video;
+    // const playlist = req.params.playlist;
+    // const video = req.params.video;
     // sera renderizdo a pagina videos
-    res.sender('videos');
+    res.render('videos');
 });
 
 
