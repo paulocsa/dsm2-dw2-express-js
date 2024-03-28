@@ -36,10 +36,22 @@ app.get("/produtos/:produto?", (req, res) => {
 app.get("/pedidos", (req, res) => {
     // Array de objetos com os pedidos
     let pedidos = [
-        {produto: "Celular", preco: 12000}, 
-        {produto: "Computador", preco: 3000}, 
-        {produto: "Tablet", preco: 2000}, 
-        {produto: "Notebook", preco: 3800}
+        {
+            produto: "Celular",
+            preco: 12000
+        }, 
+        {
+            produto: "Computador",
+            preco: 3000
+        }, 
+        {
+            produto: "Tablet",
+            preco: 2000
+        }, 
+        {
+            produto: "Notebook",
+            preco: 3800
+        }
     ]
     res.render('pedidos', {
         // Enviando o array de objetos para página
@@ -51,10 +63,26 @@ app.get("/pedidos", (req, res) => {
 app.get("/clientes", (req, res) => {
     // Array de objetos com os pedidos
     let clientes = [
-        {nome: "João Pereira", cpf: "111.111.111-00", cidade: "Registro"}, 
-        {nome: "Ana Souza", cpf: "222.222.222-00", cidade: "Juquiá"}, 
-        {nome: "Caio César", cpf: "333.333.333-00", cidade: "Pariquera"}, 
-        {nome: "Felipe Mendes", cpf: "444.444.444-00", cidade: "Miracatu"}
+        {
+            nome: "João Pereira",
+            cpf: "111.111.111-00",
+            cidade: "Registro"
+    }, 
+        {
+            nome: "Ana Souza", 
+            cpf: "222.222.222-00",
+            cidade: "Juquiá"
+        }, 
+        {
+            nome: "Caio César",
+            cpf: "333.333.333-00",
+            cidade: "Pariquera"
+        }, 
+        {
+            nome: "Felipe Mendes",
+            cpf: "444.444.444-00",
+            cidade: "Miracatu"
+        }
     ]
     res.render('clientes', {
         // Enviando o array de objetos para página
