@@ -93,6 +93,36 @@ app.get("/pedidos", (req, res) => {
 });
 
 
+
+// ROTA CLIENTES
+app.get("/clientes", (req, res) => {
+    // Array de objetos com os pedidos
+    let clientes = [
+        {
+            nome: "João Pereira", 
+            cpf: "111.111.111-00", 
+            cidade: "Registro"
+    }, 
+        {
+            nome: "Ana Souza", 
+            cpf: "222.222.222-00", 
+            cidade: "Juquiá"}, 
+        {
+            nome: "Caio César", 
+            cpf: "333.333.333-00", 
+            cidade: "Pariquera"}, 
+        {
+            nome: "Felipe Mendes", 
+            cpf: "444.444.444-00", 
+            cidade: "Miracatu"}
+    ]
+    res.render('clientes', {
+        // Enviando o array de objetos para página
+        clientes : clientes
+    })
+})
+
+
 //Iniciando o servidor 
 app.listen(8080, function (erro) { //porta localhost , se fosse web seria 80
     if (erro) {

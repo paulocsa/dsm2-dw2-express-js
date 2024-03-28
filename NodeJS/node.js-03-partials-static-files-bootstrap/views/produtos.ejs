@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') %>
+
+    <h1>Produtos</h1>
+    <!-- Comentário no HTML -->
+    <%# Comentário no EJS %>
+
+    <%= produto %>
+
+    <% if (!produto){ %>
+        <p><%= produtos %></p>
+    <% } %>
+
+<%- include('partials/footer.ejs') %>
