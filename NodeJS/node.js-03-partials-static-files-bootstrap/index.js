@@ -6,6 +6,10 @@ const app = express()
 // Definindo o EJS para renderizar páginas HTML
 app.set('view engine', 'ejs')
 
+//definindo as pasta "public" 
+app.use(express.static('public'));
+
+
 // Criando a primeira rota (ROTA PRINCIPAL)
 app.get("/", (req, res) => {
     // Será renderizada a página 'views\index.ejs'
@@ -18,7 +22,7 @@ app.get("/perfil", (req, res) => {
 // ROTA VÍDEOS
 app.get("/videos", (req, res) => {
     res.render('videos')
-})
+});
 
 // ROTA PRODUTOS
 app.get("/produtos/:produto?", (req, res) => {
