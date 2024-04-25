@@ -24,7 +24,7 @@ import ProdutosController from "./controllers/ProdutosController.js"
 connection.authenticate().then(()=>{
     console.log("Conexão com o banco de dados feita com sucesso");
 }).catch((error) => {
-    console.log("Erro de conexão");
+    console.log(error);
 });
 
 // criando o banco de dados se ele nao existir
@@ -38,16 +38,16 @@ connection.query(`CREATE DATABASE IF NOT EXISTS loja`).then(() => {
 // Define o EJS como Renderizador de páginas
 app.set('view engine', 'ejs');
 
-
 // Define o uso da pasta "public" para uso de arquivos estáticos
 app.use(express.static('public'));
 
+// Configurando o express para receber dados vindo de formularios
+app.use(express.urlencoded({extended: false}));
 
 // Definindo o uso das rotas dos Controllers
 app.use("/", PedidosController);
 app.use("/", ProdutosController);
 app.use("/", ClientesController);
-
 
 
 // ROTA PRINCIPAL
@@ -56,10 +56,8 @@ app.get("/", function (req, res) {
 });
 
 
-
-
 // INICIA O SERVIDOR NA PORTA 8080
-app.listen(4000, function (erro) {
+app.listen(8080, function (erro) {
     if (erro) {
         console.log("Ocorreu um erro!");
 
