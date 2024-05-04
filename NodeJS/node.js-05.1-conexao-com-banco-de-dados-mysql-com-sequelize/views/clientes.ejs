@@ -1,27 +1,24 @@
 <%- include ('partials/header.ejs') %>
-    <%- include ('partials/navbar.ejs') %>
+<%- include ('partials/navbar.ejs') %>
 
-
-    <!-- formulario de cadastro -->
-
+<!-- FORMULÁRIO DE CADASTRO -->
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h1>Cadastrar Cliente</h1>
+            <h1>Cadastrar cliente</h1>
         </div>
         <div class="card-body">
-            <form action="/clientes/new" method="post">
-                <label> Nome do cliente</label>
+            <form action="/clientes/new" method="POST">
+                <label>Nome do cliente:</label>
                 <input type="text" name="nome" placeholder="Insira o nome do cliente" class="form-control" required>
-                <br>
-                <label> CPF do cliente</label>
-                <input type="text" name="cpf" placeholder="Insira o CPF do cliente" class="form-control" required>
-                <br>
-                <label> Endereço do cliente</label>
+                <label>CPF do cliente:</label>
+                <input type="text" name="cpf" placeholder="Insira o cpf do cliente" class="form-control" required>
+                <label>Endereço do cliente:</label>
                 <input type="text" name="endereco" placeholder="Insira o endereço do cliente" class="form-control" required>
                 <br>
                 <input type="submit" value="Cadastrar" class="btn btn-success">
             </form>
+            <hr>
         </div>
     </div>
 </div>
@@ -39,7 +36,7 @@
                                 <th>Nome:</th>
                                 <th>CPF:</th>
                                 <th>Endereço:</th>
-                                <th style="text-align: center;" colspan="2" >Ações:</th>
+                                <th style="text-align: center;" colspan="2">Ações:</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,12 +52,8 @@
                                     <td>
                                         <%= cliente.endereco %>
                                     </td>
-                                    <td>
-                                        <a href="/clientes/edit/<%= cliente.id %>" class="btn btn-warning">Editar</a>
-                                    </td>
-                                    <td>
-                                        <a href="/clientes/delete/<%= cliente.id %>" onclick="return confirm('Deseja mesmo excluir o cliente <%= cliente.nome %>?')" class="btn btn-danger">Excluir</a>
-                                    </td>
+                                    <td><a style="color: orange;" href="/clientes/edit/<%= cliente.id %>">Editar</a></td>
+                                    <td><a style="color: red;" href="/clientes/delete/<%= cliente.id %>" onclick="return confirm('Deseja mesmo excluir o cliente <%= cliente.nome %>?')">Excluir</a></td>
                                 </tr>
                                 <% }) %>
                         </tbody>
