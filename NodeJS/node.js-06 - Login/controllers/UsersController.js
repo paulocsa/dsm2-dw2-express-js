@@ -39,5 +39,25 @@ router.post("/createUser", (req, res) => {
 });
 
 
+router.post("/authenticate", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.findOne({where: {email: email}}).then(user => {
+        if(user != undefined){
+            const correct = bcrypt.compareSync(password, user.password);
+
+            if(correct){
+                res.redirect("/");
+            }else{
+                res.send('Senha invalida');
+            }
+        }else{
+            res.send('Usuario nao cadastrado.<br><a href="/login">Tentar novamente</a>');
+        }
+    });
+
+});
+
 
 export default router;
