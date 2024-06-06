@@ -2,44 +2,52 @@ import express from 'express'
 const app = express()
 import multer from 'multer'
 import connection from './config/sequelize-config.js'
-import Galeria from "./models/Galeria.js"
+// import Galeria from "./models/Galeria.js"
 import GaleriaService from './services/GaleriaService.js'
 
 app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
+// Realizando a conexão com o banco
 connection.authenticate().then(() => {
-    console.log("Conexão com o banco feita com sucesso!")
+    console.log("Conexão com o banco de dados feita com sucesso!")
 }).catch((error) => {
     console.log(error)
 })
-
-connection.query('CREATE DATABASE IF NOT EXISTS galeria;').then(() => {
+// Criando o banco caso ele não exista
+connection.query(`CREATE DATABASE IF NOT EXISTS galeria;`).then(() => {
     console.log("O banco de dados está criado.")
 }).catch((error) => {
     console.log(error)
 })
 
-//configurando o Multer
-const upload = multer({dest: "public/uploads"})
+// Configurando o MULTER
+const upload = multer({dest: "public/uploads/"})
 
-//rota principal
-app.get("/", (req, res) =>{
-    res.render('index')
-})
+// ROTA PRINCIPAL
+app.get("/", (req, res) => {
+    GaleriaService.SelectPictures().then
+    (
+        imagens => {
+        res.render('index', {
+            imagens:imagens
+        });
+        }
+    )
+});
 
-//rota upload
-app.post("/upload", upload.single("file"), (req, res) =>{
+// ROTA DE UPLOAD
+app.post("/upload", upload.single("file"), (req, res) => {
     const file = req.file.filename
     GaleriaService.Save(file)
     res.redirect("/")
 })
 
 const port = 8080
-app.listen(port, (error) =>{
+app.listen(port, (error) => {
     if(error){
         console.log(`Ocorreu um erro! ${error}`)
-    }else{
-        console.log(`Servidor rodadndo em http://localhost:${port}.`)
+    } else {
+        console.log(`Servidor rodando em http://localhost:${port}.`)
     }
 })
