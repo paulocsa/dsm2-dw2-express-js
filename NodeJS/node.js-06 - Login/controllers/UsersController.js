@@ -48,7 +48,14 @@ router.post("/authenticate", (req, res) => {
             const correct = bcrypt.compareSync(password, user.password);
 
             if(correct){
-                res.redirect("/");
+                // aqui sera criada a sessão
+                req.session.user ={
+                    id : user.id,
+                    email: user.email
+                }
+
+                res.send(`Usuario logado: <br> ID: ${req.session.user['id']} <br> Email: ${req.session.user['email']}`)
+                // res.redirect("/");
             }else{
                 res.send('Senha invalida');
             }

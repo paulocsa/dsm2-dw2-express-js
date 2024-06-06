@@ -1,9 +1,10 @@
 import express from "express";
 const router = express.Router();
 import Produto from "../models/Produto.js";
+import Auth from "../middleware/Auth.js"
 
 // ROTA DE LISTAGEM DE PRODUTOS
-router.get("/produtos", (req, res) => {
+router.get("/produtos", Auth, (req, res) => {
     Produto.findAll().then(produtos => {
         res.render("produtos", {
             produtos: produtos

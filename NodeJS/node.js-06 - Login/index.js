@@ -11,6 +11,18 @@ import PedidosController from "./controllers/PedidosController.js"
 import UsersController from "./controllers/UsersController.js"
 
 
+
+// improtando o gerador de sessões do express
+import session from 'express-session'
+
+// configurando a sessao do usuario 
+app.use(session({
+    secret: "lojasecret",
+    cookie: {maxAge: 120000}, //a sessao expira em 2 minutos
+    saveUninitialized: false,
+    resave: false
+}));
+
 // Realizando a conexão com o banco de dados
 connection.authenticate().then(() => {
     console.log("Conexão com o banco de dados feita com sucesso!")
